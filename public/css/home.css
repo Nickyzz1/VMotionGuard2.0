@@ -1,0 +1,245 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #252525 !important;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    padding: 4%;
+}
+
+.hello {
+    background-color: blue;
+    padding: 7px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.car {
+    height: 50px;
+    width: auto;
+}
+
+.navegacao {
+    width: 100%; 
+}
+
+.navbar {
+    height: 60px; 
+}
+
+.modeCenter-mobile
+{
+    margin: 20px;
+    padding: 0;
+    align-self: flex-start;
+
+}
+
+.navbar-brand {
+    font-size: 1.5rem; 
+}
+
+.navbar-nav .nav-link {
+    padding: 15px; 
+}
+
+.ancora {
+    text-decoration: none;
+    color: white;
+}
+
+.ancora:hover {
+    color: gray !important;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.links a {
+    margin-bottom: 10px; 
+}
+
+.details:hover {
+    box-shadow: 0 0 14px rgba(60, 59, 59, 0.416);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 140px); 
+    grid-template-rows: auto; 
+    gap: 20px; 
+    justify-content: center; 
+    margin: 10px;
+    flex: 1;
+}
+
+header img {
+    height: 100px !important;
+    width: auto;
+    display: flex;
+    right: 0;
+}
+
+.master {
+    grid-column: span 2; 
+    width: 300px !important; 
+    height: 140px; 
+}
+
+.title {
+    background-color: orange;
+    padding: 3%;
+    border-radius: 10px;
+}
+
+.cards {
+    background-color: rgba(255, 255, 255, 0.931);
+    color: black;
+    width: 140px;
+    height: 170px;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.cards:hover{
+    box-shadow: 0 0 4px white;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.cards img {
+    max-width: 30px;
+    margin-right: 5px;
+}
+
+.cards h1 {
+    font-size: 15px;
+    margin: 0;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.cards p {
+    margin: 0;
+}
+
+.cards button {
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    background-color: orange;
+    width: 90%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 0 0 10px white;
+}
+
+.icon {
+    max-width: 30px;
+}
+.troca
+{
+    border-radius: 10px; 
+    border: none; width: 100%; 
+    background-color: orange;
+    text-shadow: 0 0 10px white;
+}
+.troca:hover{
+    border: solid 0.9px white;
+    box-shadow: 0 0 9px rgba(255, 255, 255, 0.416);
+}
+
+footer {
+    background-color: blue;
+    padding: 20px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+}
+
+@media (max-width: 719px) {
+    header .navegacao {
+        display: none; 
+    }
+}
+
+@media (min-width: 720px) {
+    main {
+        display: grid;
+        grid-template-columns: repeat(4, 140px); 
+        grid-template-rows: auto; 
+        gap: 20px; 
+        justify-content: center; 
+        margin: 20px; 
+        flex: 1; 
+    }
+    header .navegacao {
+        display: block; 
+    }
+    .modeCenter-mobile
+{
+    display: none;
+}
+    footer {
+        display: none; 
+    }
+    .master {
+        grid-column: span 4; 
+        width: 620px !important; 
+        height: 140px; 
+    }
+}

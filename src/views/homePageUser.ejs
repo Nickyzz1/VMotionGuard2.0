@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/setMode.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="/js/setMode.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <title>Home</title>
+</head>
+<body class='modeAtual'>
+
+  <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">DETALHES</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <p>AINDA NÃO HÁ DADOS</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <header>
+
+        <div class="navegacao">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4 links">
+                    <a href="/userCars/<%=login.IDUser%>" class="text-white h4 ancora">Meu carro</a>
+                    <a href="/minhaConta/<%=login.IDUser%>" class="text-white h4 ancora">Minha conta</a> 
+                    <a href="#" class="text-white h4 ancora">Notificações</a> 
+                    <a href="/" class="text-white h4 ancora">Sair</a>
+                    <div class="modeCenter">
+                        <div class="mode">
+                          <img id="modeToggle" onclick="toggleDarkMode()" class="setModeIcon" src="/img/moon.png" alt="Toggle Dark Mode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark custom-shadow ">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <div class="content">
+            
+        <div class="modeCenter-mobile">
+            <div class="mode">
+              <img id="modeToggle" onclick="toggleDarkMode()" class="setModeIcon" src="/img/moon.png" alt="Toggle Dark Mode">
+            </div>
+        </div>
+            <p class="hello">Olá, <%=login.Name %></p>
+            <img class="car" src="/img/gol.png" alt="">
+        </div>
+
+    </header>
+    <main>
+        <div class="cards master">
+            <div class="card-header">
+                <div class="title">
+                    <h1>QUILÔMETROS RODADOS</h1>
+                </div>
+            </div>
+            <div class="card-content">
+                <p> 
+                  <%= vehiclesUser.length != 0? vehiclesUser[0].KMs != null ? vehiclesUser[0].KMs + ' KM' : "AINDA NÃO HÁ DADOS": "AINDA NÃO HÁ DADOS" %> 
+                </p>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-header">
+                <img class="icon" src="/img/saúde.png" alt="">
+                <h1>SAÚDE DA BATERIA</h1>
+            </div>
+            <div class="card-content">
+                <p>
+                    <%= 
+                    
+                    vehiclesUser && vehiclesUser.length > 0 && vehiclesUser[0].Battery != null ? 
+                    vehiclesUser[0].Battery >= 12.6 ? "COMPLETAMENTE SAUDÁVEL" :
+                    vehiclesUser[0].Battery >= 12.4 ? "SAUDÁVEL" :
+                    vehiclesUser[0].Battery >= 12.2 ? "ATENÇÃO, BATERIA BAIXA" :
+                    vehiclesUser[0].Battery < 12.2 &&  vehiclesUser[0].Battery > 0 ? "BATERIA PRECISA SER SUBSTITUÍDA" : "AINDA NÃO HÁ DADOS" : 
+                    "AINDA NÃO HÁ DADOS"
+                    %>
+
+                </p>
+            </div>
+            <button type="submit" class="details" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Detalhes</button>
+        </div>
+
+        <div class="cards">
+            <div class="card-header">
+                <img class="icon" src="/img/saúde.png" alt="">
+                <h1>GASOLINA</h1>
+            </div>
+            <div class="card-content">
+                <p>
+                  <%= vehiclesUser && vehiclesUser.length > 0 && vehiclesUser[0].Gas != undefined ? vehiclesUser[0].Gas + "L" : "AINDA NÃO HÁ DADOS" %> 
+                </p>
+            </div>
+             <button type="submit" class="details" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Detalhes</button>
+        </div>
+
+        <div class="cards">
+            <div class="card-header">
+                <img class="icon" src="/img/saúde.png" alt="">
+                <h1>ÓLEO</h1>
+            </div>
+            <div class="card-content">
+                <p>
+                  <%=vehiclesUser && vehiclesUser.length > 0 && vehiclesUser[0].Oil != undefined ? 
+                     vehiclesUser[0].Oil > 1.5 ? "NÍVEL OK" : "PRECISA REPOR" 
+                     : "AINDA NÃO HÁ DADOS" 
+                  %>
+                </p>
+            </div>
+             <button type="submit" class="details" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Detalhes</button>
+        </div>
+
+        <div class="cards">
+            <div class="card-header">
+                <img class="icon" src="/img/saúde.png" alt="">
+                <h1>ÁGUA</h1>
+            </div>
+            <div class="card-content">
+                <p>
+                  <%= vehiclesUser && vehiclesUser.length > 0 && vehiclesUser[0].water != undefined ? 
+                      vehiclesUser[0].water > 2.5 ? "NÍVEL ALTO" : 
+                      vehiclesUser[0].water > 1.5 ? "NÍVEL MÉDIO" : "NÍVEL BAIXO" 
+                      : "AINDA NÃO HÁ DADOS" 
+                  %>
+                </p>
+            </div>
+             <button type="submit" class="details" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Detalhes</button>
+        </div>
+
+        <button type="submit" id="troca" class="troca">Trocar carro</button>
+        <button class="troca" id="carro"><%= //vehiclesUser[0].Model %> n°: 1 </button>
+    </main>
+
+    <footer>
+        <a href="/userCars/<%=login.IDUser%>"><img class="icon" src="/img/car.png"></a>
+        <a href="#"><img class="icon" src="/img/notification.png"></a>
+        <a href="#"><img class="icon" src="/img/home.png"></a>
+        <a href="/minhaConta/<%=login.IDUser%>"><img class="icon" src="/img/user.png"></a>
+ </footer>
+
+ <script>
+    const troca = document.getElementById("troca");
+    let currentIndex = 0;
+
+    const vehiclesUser = <%- JSON.stringify(vehiclesUser) %>;
+    // alert(vehiclesUser.length != 0? "é zero": "nn é")
+    function updateVehicleData(index) {
+        const kmElement = document.querySelector('.cards.master .card-content p');
+        const batteryElement = document.querySelector('.cards:nth-of-type(2) .card-content p');
+        const gasElement = document.querySelector('.cards:nth-of-type(3) .card-content p');
+        const oilElement = document.querySelector('.cards:nth-of-type(4) .card-content p');
+        const waterElement = document.querySelector('.cards:nth-of-type(5) .card-content p');
+        const carro = document.getElementById("carro");
+
+        kmElement.textContent = vehiclesUser && vehiclesUser[index].KMs != null ? vehiclesUser[index].KMs + ' KM' : "AINDA NÃO HÁ DADOS" ;
+    
+        batteryElement.textContent = vehiclesUser && vehiclesUser[index].Battery != null ? 
+                    vehiclesUser[index].Battery >= 12.6 ? "COMPLETAMENTE SAUDÁVEL" :
+                    vehiclesUser[index].Battery >= 12.4 ? "SAUDÁVEL" :
+                    vehiclesUser[index].Battery >= 12.2 ? "ATENÇÃO, BATERIA BAIXA" : 
+                    "BATERIA PRECISA SER SUBSTITUÍDA" : "AINDA NÃO HÁ DADOS";
+      
+        gasElement.textContent = vehiclesUser && vehiclesUser.length > 0 && vehiclesUser[index].Gas != undefined ? vehiclesUser[index].Gas + "L" : "AINDA NÃO HÁ DADOS";
+        
+        oilElement.textContent =  vehiclesUser && vehiclesUser.length > 0 && vehiclesUser[index].Oil != undefined ? 
+                      vehiclesUser[index].Oil > 1.5 ? "NÍVEL OK" : "PRECISA REPOR" : "AINDA NÃO HÁ DADOS" ;
+        
+       
+        waterElement.textContent = vehiclesUser && vehiclesUser.length > 0 && vehiclesUser[index].water != undefined ? 
+                      vehiclesUser[index].water > 2.5 ? "NÍVEL ALTO" : 
+                      vehiclesUser[index].water > 1.5 ? "NÍVEL MÉDIO" : "NÍVEL BAIXO" : "AINDA NÃO HÁ DADOS" ;
+    }
+
+    troca.addEventListener("click", function() {
+        currentIndex = (currentIndex + 1) % vehiclesUser.length;
+        
+        updateVehicleData(currentIndex);
+        carro.textContent = vehiclesUser[currentIndex].Model + " n°" + (currentIndex + 1);
+        
+    });
+
+ </script>
+</body>
+</html>

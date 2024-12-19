@@ -1,0 +1,286 @@
+/* Reset básico para margin e padding */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #252525 !important;
+    font-family: "Roboto", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bg-dark.p-4
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    padding: 4%;
+}
+
+a {
+    color: white;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: gray !important;
+}
+
+.navegacao {
+    width: 100%;
+}
+
+.navegar {
+    display: flex;
+    flex-direction: column !important;
+}
+
+.navbar {
+    height: 60px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    padding: 15px;
+}
+
+.title-gerenciamento {
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.hello {
+    background-color: blue;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+#searchBar {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+}
+
+#content p {
+    padding: 5px;
+    font-size: 18px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin: 10px;
+    flex: 1;
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+
+main h1 {
+    margin: 0;
+}
+
+header img {
+    height: 100px !important;
+    width: auto;
+    display: flex;
+    right: 0;
+}
+
+.modeCenter-mobile {
+    margin: 20px;
+    padding: 0;
+    align-self: flex-start;
+}
+
+.master {
+    grid-column: span 2;
+}
+
+.title {
+    background-color: orange;
+    padding: 3%;
+    border-radius: 10px;
+}
+.cards-admin {
+    background-color: rgba(54, 53, 53, 0.896);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    display: flex;
+
+    align-items: center; 
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px; 
+    margin: 20px;
+    transition: background-color 0.3s ease;
+    width: 310px; 
+    height: 150px; 
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.cards-admin img {
+    max-width: 30px;
+    align-self: end;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.cards-admin h1 {
+    font-size: 15px;
+    margin: 0;
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 7px;
+}
+.card-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 100%; 
+    margin-left: 10px;
+}
+
+
+
+.cards-admin p {
+    margin: 0;
+}
+
+.admin-cards-button {
+    display: flex;
+    background-color: transparent;
+    border: none;
+}
+
+.cards-admin button img {
+    max-width: 20px;
+}
+
+.adc-car {
+    border: none;
+    align-self: center;
+    height: 60px;
+    width: 130px;
+    border-radius: 10px;
+    background-color: orange;
+}
+
+.adc-car:hover {
+    background-color: rgb(146, 96, 5);
+}
+
+.adc-car a {
+    text-decoration: none;
+    color: white;
+}
+
+.center-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-admin:hover {
+    background-color: rgb(69, 68, 68);
+}
+
+.cards-admin h1 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.cards-admin img {
+    max-width: 30px;
+    cursor: pointer;
+    margin: 10px 0; /* Ajuste o margin conforme necessário */
+}
+
+.icon {
+    max-width: 30px;
+}
+
+#carros {
+    margin: 0;
+    padding: 0;
+    background-color: transparent !important;
+    border: none;
+}
+
+footer {
+    background-color: blue;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+@media (max-width: 719px) {
+    header .navegacao {
+        display: none;
+    }
+}
+
+@media (min-width: 719px) {
+    header .navegacao {
+        display: block;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+@media (min-width: 700px) {
+    .cards-admin {
+        width: calc(50% - 20px); 
+    }
+}
